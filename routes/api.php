@@ -18,7 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('login', 'API\AuthController@login');
-Route::middleware('jwt.auth')->group(function(){
 
+Route::middleware('jwt.auth')->group(function(){
     Route::get('logout', 'API\AuthController@logout');
+    Route::get('tasks/show', 'TaskController@index');
+    Route::post('task/create', 'TaskController@store');
+    Route::get('task/show', 'TaskController@show');
 });
