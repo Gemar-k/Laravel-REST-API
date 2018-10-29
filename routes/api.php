@@ -23,5 +23,7 @@ Route::middleware('jwt.auth')->group(function(){
     Route::get('logout', 'API\AuthController@logout');
     Route::get('tasks/show', 'TaskController@index');
     Route::post('task/create', 'TaskController@store');
-    Route::get('task/show', 'TaskController@show');
+    Route::get('task/{task}', 'TaskController@show');
+    Route::delete('task/delete/{task}', 'TaskController@destroy');
+    Route::patch('task/update/{task}', 'TaskController@update');
 });
